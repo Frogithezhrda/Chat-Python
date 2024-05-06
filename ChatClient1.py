@@ -39,8 +39,8 @@ def get_big(conn):
             time.sleep(1)  # Sleep briefly to allow messages to appear while typing
             if message.upper() == "QUIT":
                 running = False
+                receive_thread.join()
                 break
-        receive_thread.join()
         running = True
     else:
         print(data)
@@ -63,8 +63,8 @@ def get_chat(conn):
                 time.sleep(1)  # Sleep briefly to allow messages to appear while typing
                 if message.upper() == "QUIT":
                     running = False
+                    receive_thread.join()
                     break
-        receive_thread.join()
         running = True
     else:
         print("No Chat Exists!")
